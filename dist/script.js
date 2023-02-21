@@ -98,6 +98,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_sliders_sliderMain__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/sliders/sliderMain */ "./src/js/modules/sliders/sliderMain.js");
 /* harmony import */ var _modules_sliders_sliderMini__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/sliders/sliderMini */ "./src/js/modules/sliders/sliderMini.js");
 /* harmony import */ var _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/videoPlayer */ "./src/js/modules/videoPlayer.js");
+/* harmony import */ var _modules_difference__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/difference */ "./src/js/modules/difference.js");
+
 
 
 
@@ -133,7 +135,58 @@ window.addEventListener("DOMContentLoaded", () => {
   feedSlider.init();
   const player = new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_2__["default"](".showup__video .play", ".overlay");
   player.init();
+  new _modules_difference__WEBPACK_IMPORTED_MODULE_3__["default"](".officerold", ".officernew", ".officer__card-item").init();
 });
+
+/***/ }),
+
+/***/ "./src/js/modules/difference.js":
+/*!**************************************!*\
+  !*** ./src/js/modules/difference.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Difference; });
+class Difference {
+  constructor(oldOfficer, newOfficer, items) {
+    this.oldOfficer = document.querySelector(oldOfficer);
+    this.newOfficer = document.querySelector(newOfficer);
+    this.oldItems = this.oldOfficer.querySelectorAll(items);
+    this.newItems = this.newOfficer.querySelectorAll(items);
+    this.oldCounter = 0;
+    this.newCounter = 0;
+  }
+  bindTriggers(container, items, counter) {
+    container.querySelector(".plus").addEventListener("click", () => {
+      if (counter !== items.length - 2) {
+        items[counter].style.display = "flex";
+        items[this.oldCounter].classList.add("animated", "fadeIn");
+        counter++;
+      } else {
+        items[counter].style.display = "flex";
+        items[counter].classList.add("animated", "fadeIn");
+        items[items.length - 1].remove();
+      }
+    });
+  }
+  hideItems(items) {
+    items.forEach((item, i, arr) => {
+      if (i !== arr.length - 1) {
+        item.style.display = "none";
+      }
+    });
+  }
+  init() {
+    this.hideItems(this.oldItems);
+    this.hideItems(this.newItems);
+    this.bindTriggers(this.oldOfficer, this.oldItems, this.oldCounter);
+    this.bindTriggers(this.newOfficer, this.newItems, this.newCounter);
+    this.bindTriggers();
+  }
+}
 
 /***/ }),
 
