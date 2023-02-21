@@ -12,7 +12,7 @@ export default class Difference {
     container.querySelector(".plus").addEventListener("click", () => {
       if (counter !== items.length - 2) {
         items[counter].style.display = "flex";
-        items[this.oldCounter].classList.add("animated", "fadeIn");
+        items[counter].classList.add("animated", "fadeIn");
         counter++;
       } else {
         items[counter].style.display = "flex";
