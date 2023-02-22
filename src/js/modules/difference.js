@@ -35,6 +35,5 @@ export default class Difference {
     this.hideItems(this.newItems);
     this.bindTriggers(this.oldOfficer, this.oldItems, this.oldCounter);
     this.bindTriggers(this.newOfficer, this.newItems, this.newCounter);
-    this.bindTriggers();
   }
 }
