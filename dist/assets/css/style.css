@@ -1690,6 +1690,7 @@ a:active {
   justify-content: space-between;
   align-items: center;
   padding: 24px 32px;
+  cursor: pointer;
 }
 .module__info-controls .next__counter,
 .module__info-controls .prev__counter {
