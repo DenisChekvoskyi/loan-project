@@ -100,6 +100,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/videoPlayer */ "./src/js/modules/videoPlayer.js");
 /* harmony import */ var _modules_difference__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/difference */ "./src/js/modules/difference.js");
 /* harmony import */ var _modules_form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/form */ "./src/js/modules/form.js");
+/* harmony import */ var _modules_shovInfo__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/shovInfo */ "./src/js/modules/shovInfo.js");
+
 
 
 
@@ -146,6 +148,7 @@ window.addEventListener("DOMContentLoaded", () => {
   new _modules_videoPlayer__WEBPACK_IMPORTED_MODULE_2__["default"](".module__video-item .play", ".overlay").init();
   new _modules_difference__WEBPACK_IMPORTED_MODULE_3__["default"](".officerold", ".officernew", ".officer__card-item").init();
   new _modules_form__WEBPACK_IMPORTED_MODULE_4__["default"](".form").init();
+  new _modules_shovInfo__WEBPACK_IMPORTED_MODULE_5__["default"](".module__info-show").init();
 });
 
 /***/ }),
@@ -312,6 +315,34 @@ class Form {
             statusMessage.remove();
           }, 6000);
         });
+      });
+    });
+  }
+}
+
+/***/ }),
+
+/***/ "./src/js/modules/shovInfo.js":
+/*!************************************!*\
+  !*** ./src/js/modules/shovInfo.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ShovInfo; });
+class ShovInfo {
+  constructor(triggers) {
+    this.triggers = document.querySelectorAll(triggers);
+  }
+  init() {
+    this.triggers.forEach(item => {
+      item.addEventListener("click", () => {
+        const msg = item.nextElementSibling;
+        msg.classList.toggle("msg");
+        msg.classList.add("animated", "fadeInUp");
+        msg.style.marginTop = "20px";
       });
     });
   }

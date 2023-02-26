@@ -1611,6 +1611,7 @@ a:active {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   width: 260px;
+  cursor: pointer;
 }
 .module__info-show .plus {
   -webkit-transform: translateY(2px);
