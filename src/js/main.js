@@ -4,6 +4,7 @@ import VideoPlayer from "./modules/videoPlayer";
 import Difference from "./modules/difference";
 import Form from "./modules/form";
 import ShovInfo from "./modules/shovInfo";
+import Download from "./modules/download";
 
 window.addEventListener("DOMContentLoaded", () => {
   const slider = new MainSlider({ btns: ".next", container: ".page" });
@@ -53,4 +54,5 @@ window.addEventListener("DOMContentLoaded", () => {
   new Difference(".officerold", ".officernew", ".officer__card-item").init();
   new Form(".form").init();
   new ShovInfo(".module__info-show").init();
+  new Download(".download").init();
 });
